@@ -32,3 +32,24 @@
 .nav-link:active, .auth-link:active {
     background-color: #333333; /* Darker grey background when clicked */
 }
+
+/* Style button to match the links */
+button.auth-link {
+    color: #ffffff; /* Same text color as links */
+    font-weight: 600;
+    font-size: medium;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none; /* Remove default button border */
+    background: none; /* Match the background of the links */
+    cursor: pointer; /* Add cursor style for interactivity */
+    transition: background-color 0.3s ease;
+}
+
+button.auth-link:hover {
+    background-color: #616161; /* Match hover effect */
+}
+
+button.auth-link:active {
+    background-color: #333333; /* Match active effect */
+}
