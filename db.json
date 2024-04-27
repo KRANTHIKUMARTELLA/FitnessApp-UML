@@ -72,19 +72,59 @@
       "Log": [
         {
           "effortLevel": "beginner",
-          "reps": 1,
-          "targetMuscle": "Chest",
+          "reps": 3,
+          "targetMuscle": "Shoulder",
           "duration": "1",
           "caloriesBurnt": 250,
           "date": "2024-04-27"
         },
         {
           "effortLevel": "beginner",
-          "reps": 1,
+          "reps": 5,
+          "targetMuscle": "Back",
+          "duration": "2",
+          "caloriesBurnt": 350,
+          "date": "2024-04-26"
+        },
+        {
+          "effortLevel": "beginner",
+          "reps": 4,
           "targetMuscle": "Chest",
           "duration": "1",
-          "caloriesBurnt": 4220,
-          "date": "2024-04-26"
+          "caloriesBurnt": 450,
+          "date": "2024-04-27"
+        },
+        {
+          "effortLevel": "beginner",
+          "reps": 8,
+          "targetMuscle": "Legs",
+          "duration": "5",
+          "caloriesBurnt": 550,
+          "date": "2024-04-27"
+        },
+        {
+          "effortLevel": "beginner",
+          "reps": 6,
+          "targetMuscle": "Chest",
+          "duration": "2",
+          "caloriesBurnt": 250,
+          "date": "2024-04-27"
+        },
+        {
+          "effortLevel": "beginner",
+          "reps": 4,
+          "targetMuscle": "Shoulder",
+          "duration": "6",
+          "caloriesBurnt": 350,
+          "date": "2024-04-27"
+        },
+        {
+          "effortLevel": "beginner",
+          "reps": 6,
+          "targetMuscle": "Back",
+          "duration": "5",
+          "caloriesBurnt": 900,
+          "date": "2024-04-27"
         }
       ]
     },

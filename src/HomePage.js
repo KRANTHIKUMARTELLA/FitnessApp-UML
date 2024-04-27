@@ -208,7 +208,7 @@ function HomePage() {
                     <h3>Lower arms</h3>
                     <ul>
                         <li>Pull-ups</li>
-                        <li>Rows</li>
+                        <li>Curls</li>
                         <li>Deadlift</li>
                     </ul>
                 </Link>
@@ -217,9 +217,9 @@ function HomePage() {
                 <Link to="/workout/upper arms" className="exercise-card">
                     <h3>Upper arms</h3>
                     <ul>
-                        <li>Squats</li>
+                        <li>Curls</li>
                         <li>Lunges</li>
-                        <li>Leg Press</li>
+                        <li>Bench press</li>
                     </ul>
                 </Link>
 
@@ -227,9 +227,9 @@ function HomePage() {
                 <Link to="/workout/cardio" className="exercise-card">
                     <h3>Cardio</h3>
                     <ul>
-                        <li>Shoulder Press</li>
-                        <li>Lateral Raises</li>
-                        <li>Front Raises</li>
+                        <li>Treadmil</li>
+                        <li>Burpees</li>
+                        <li>Jumping Jacks</li>
                     </ul>
                 </Link> 
 
@@ -244,18 +244,18 @@ function HomePage() {
                 <Link to="/workout/upper legs" className="exercise-card">
                     <h3>Upper legs</h3>
                     <ul>
-                        <li>Shoulder Press</li>
-                        <li>Lateral Raises</li>
-                        <li>Front Raises</li>
+                        <li>Hamstring curl</li>
+                        <li>Glute kick</li>
+                        <li>Leg press</li>
                     </ul>
                 </Link>     
 
                 <Link to="/workout/lower legs" className="exercise-card">
                     <h3>Lower legs</h3>
                     <ul>
-                        <li>Shoulder Press</li>
-                        <li>Lateral Raises</li>
-                        <li>Front Raises</li>
+                        <li>Leg Press</li>
+                        <li>Squats</li>
+                        <li>Deadlift</li>
                     </ul>
                 </Link>            
             </div>

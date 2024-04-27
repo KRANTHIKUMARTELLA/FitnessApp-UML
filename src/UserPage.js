@@ -192,7 +192,20 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Line } from 'react-chartjs-2';
+//import { Line } from 'react-chartjs-2';
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+    ResponsiveContainer,
+} from 'recharts';
+import { BarChart, Bar} from 'recharts';
+
+
 import './UserPage.css';
 
 function UserPage() {
@@ -203,7 +216,7 @@ function UserPage() {
     const [content, setContent] = useState('');
     // Initialize an array to store log data entries
     const [logDataArray, setLogDataArray] = useState([]);
-
+ 
     const handleNavigationItemClick = async (itemName) => {
         let newContent = '';
         switch (itemName) {
@@ -344,9 +357,13 @@ function UserPage() {
                         <p><strong>Height:</strong> {user.height}</p>
                         <p><strong>Weight:</strong> {user.weight}</p>
                         {/* Plot the graph */}
-                        <div className="chart-container">
-
+                        <div style={{ width: '100%', height: '400px' }}>
+                            {logData && plotCaloriesVsDate(logData)}
                         </div>
+                        <div style={{ width: '100%', height: '400px' }}>
+                            {logData && plotRepsAndDuration(logData)}
+                        </div>
+
                     </div>
                 );
             break;
@@ -356,25 +373,91 @@ function UserPage() {
         setContent(newContent);
     };
 
+    const plotCaloriesVsDate = (logData) => {
+        // Transform logData to the specified data format
+        const data = logData.map(logEntry => ({
+            name: logEntry.date, // Use date as the name for the X-axis
+            caloriesBurnt: logEntry.caloriesBurnt, // Use calories burnt as the data point
+        }));
+        console.log("profile react", data);
+    
+        return (
+            <div style={{ width: '100%', height: '400px' }}>
+                <ResponsiveContainer width="100%" height="100%">
+                    <LineChart
+                        data={data}
+                        margin={{ top: 20, right: 30, left: 20, bottom: 20 }} // Increase bottom margin
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" label={{ value: 'Date', position: 'insideBottom', offset: -10 }} />
+                        <YAxis label={{ value: 'Calories Burnt', angle: -90, position: 'insideLeft' }} />
+                        <Tooltip />
+                        <Legend verticalAlign="top" height={36} /> // Move legend to the top
+                        <Line type="monotone" dataKey="caloriesBurnt" stroke="#82ca9d" />
+                    </LineChart>
+                </ResponsiveContainer>
+            </div>
+        );
+    };
+
+    const plotRepsAndDuration = (logData) => {
+        // Transform logData to the specified data format
+        const data = logData.map(logEntry => ({
+            targetMuscle: logEntry.targetMuscle, // Use targetMuscle as the X-axis label
+            reps: logEntry.reps, // Use reps as the first data point on the Y-axis
+            duration: parseInt(logEntry.duration), // Use duration as the second data point on the Y-axis
+        }));
+        console.log("Duration", data);
+        return (
+            <div style={{ width: '100%', height: '400px' }}>
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart
+                        data={data}
+                        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="targetMuscle" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="reps" fill="#0f3133" />
+                        <Bar dataKey="duration" fill="#7c7234" />
+                    </BarChart>
+                </ResponsiveContainer>
+            </div>
+        );
+    };
+    
+    
+
     // const plotCaloriesVsDate = (logData) => {
-    //     const dates = logData.map(logEntry => logEntry.date);
-    //     const calories = logData.map(logEntry => logEntry.caloriesBurnt);
-    //     console.log("plot", dates);
-    //     console.log("plot", calories);
+    //     // Transform logData to the specified data format
+    //     const data = logData.map(logEntry => ({
+    //         name: logEntry.date, // Use date as the name for the X-axis
+    //         caloriesBurnt: logEntry.caloriesBurnt, // Use calories burnt as the data point
+    //     }));
+    //     console.log("profile react", data);
     
-    //     const data = {
-    //         labels: dates,
-    //         datasets: [
-    //             {
-    //                 label: 'Calories Burnt vs Date',
-    //                 data: calories,
-    //                 borderColor: 'rgba(75, 192, 192, 1)',
-    //                 fill: false,
-    //             },
-    //         ],
-    //     };
+    //     return (
+    //         <div style={{ width: '100%', height: '300px' }}>
+    //             <ResponsiveContainer width="100%" height="100%">
+    //                 <LineChart
+    //                     data={data}
+    //                     margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+    //                 >
+    //                     <CartesianGrid strokeDasharray="3 3" />
+    //                     <XAxis dataKey="name" label={{ value: 'Date', position: 'insideBottom', offset: -10 }} />
+    //                     <YAxis label={{ value: 'Calories Burnt', angle: -90, position: 'insideLeft' }} />
+    //                     <Tooltip />
+    //                     <Legend />
+    //                     <Line type="monotone" dataKey="caloriesBurnt" stroke="#82ca9d" />
+    //                 </LineChart>
+    //             </ResponsiveContainer>
+    //         </div>
+    //     );
+    // };
     
-    //     return <Line data={data} />;
+    
 
     // };
     const handleSubmitLogData = async (event) => {
