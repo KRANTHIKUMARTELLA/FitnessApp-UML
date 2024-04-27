@@ -35,12 +35,76 @@
       "status": "grant"
     },
     {
-      "id": "9bec",
-      "name": "Manchala",
+      "id": "44",
+      "name": "Kranti",
       "age": "23",
       "height": "160",
       "weight": "71",
-      "email": "123@gmail.com",
+      "email": "Kranti@gmail.com",
+      "password": "1234",
+      "status": "grant"
+    },
+    {
+      "id": "45",
+      "name": "Reshma",
+      "age": "27",
+      "height": "161",
+      "weight": "71",
+      "email": "Reshma@gmail.com",
+      "password": "1234",
+      "status": "grant",
+      "workout": [
+        {
+          "Muscle": "back",
+          "workoutName1": "Seated row ",
+          "workoutName2": "Lat pull down",
+          "reps": 2,
+          "weight": 10
+        },
+        {
+          "Muscle": "Shoulder",
+          "workoutName1": "Seated row ",
+          "workoutName2": "Lat pull down",
+          "reps": 2,
+          "weight": 10
+        }
+      ],
+      "Log": [
+        {
+          "effortLevel": "beginner",
+          "reps": 1,
+          "targetMuscle": "Chest",
+          "duration": "1",
+          "caloriesBurnt": 250,
+          "date": "2024-04-27"
+        },
+        {
+          "effortLevel": "beginner",
+          "reps": 1,
+          "targetMuscle": "Chest",
+          "duration": "1",
+          "caloriesBurnt": 4220,
+          "date": "2024-04-26"
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "name": "Aditya",
+      "age": "24",
+      "height": "161",
+      "weight": "71",
+      "email": "Aditya@gmail.com",
+      "password": "1234",
+      "status": "grant"
+    },
+    {
+      "id": "47",
+      "name": "Rahul",
+      "age": "25",
+      "height": "161",
+      "weight": "71",
+      "email": "Rahul@gmail.com",
       "password": "1234",
       "status": "grant"
     },

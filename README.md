@@ -85,6 +85,7 @@ these are the bodypart list we have
     "waist"
 ]
 
+### install `npm install react-chartjs-2 chart.js --save`
 
 ###  run `npm install -g json-server`
 

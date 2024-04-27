@@ -1,103 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import './PersonalTrainerPage.css';
-
-// function PersonalTrainerPage() {
-//     const [consultations, setConsultations] = useState([]);
-//     const imageAPI = 'https://avatars.dicebear.com/api/bottts/'; // Example API for randomly generated animated avatars
-
-//     useEffect(() => {
-//         // Fetch data from the JSON server for consultations
-//         const fetchData = async () => {
-//             try {
-//                 const response = await axios.get('http://localhost:3001/consultations');
-//                 setConsultations(response.data);
-//             } catch (error) {
-//                 console.error('Error fetching consultations:', error);
-//             }
-//         };
-
-//         fetchData();
-//     }, []);
-
-//     return (
-//         <div className="personal-trainer-page">
-//             <h2>Welcome, Personal Trainer!</h2>
-//             <h3>Consultations:</h3>
-//             <div className="consultation-grid">
-//                 {consultations.map((consultation) => (
-//                     <div className="consultation-box" key={consultation.id}>
-//                         {/* Image of the user from an image API */}
-//                         <img
-//                             src={`${imageAPI}${consultation.id}.svg`}
-//                             alt="User avatar"
-//                             className="user-avatar"
-//                         />
-//                         <div className="consultation-details">
-//                             <p><strong>Name:</strong> {consultation.name}</p>
-//                             <p><strong>Exercise Type:</strong> {consultation.exerciseType}</p>
-//                             <p><strong>Health Issues:</strong> {consultation.healthIssues}</p>
-//                             <p><strong>Contact No:</strong> {consultation.contactNo}</p>
-//                         </div>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default PersonalTrainerPage;
-
-
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import './PersonalTrainerPage.css';
-
-// function PersonalTrainerPage() {
-//     const [consultations, setConsultations] = useState([]);
-
-//     // Use Lorem Picsum API to generate random images
-//     const randomImageAPI = 'https://picsum.photos/seed';
-
-//     useEffect(() => {
-//         // Fetch data from the JSON server for consultations
-//         const fetchData = async () => {
-//             try {
-//                 const response = await axios.get('http://localhost:3001/consultations');
-//                 setConsultations(response.data);
-//             } catch (error) {
-//                 console.error('Error fetching consultations:', error);
-//             }
-//         };
-
-//         fetchData();
-//     }, []);
-
-//     return (
-//         <div className="personal-trainer-page">
-//             <h2>Welcome, Personal Trainer!</h2>
-//             <h3>Consultations:</h3>
-//             <div className="consultation-grid">
-//                 {consultations.map((consultation) => (
-//                     <div className="consultation-box" key={consultation.id}>
-//                         {/* Use Lorem Picsum API for user avatar */}
-//                         <img
-//                             src={`${randomImageAPI}/${consultation.id}/100`}
-//                             alt="User avatar"
-//                             className="user-avatar"
-//                         />
-//                         <div className="consultation-details">
-//                             <p><strong>Name:</strong> {consultation.name}</p>
-//                             <p><strong>Exercise Type:</strong> {consultation.exerciseType}</p>
-//                             <p><strong>Health Issues:</strong> {consultation.healthIssues}</p>
-//                             <p><strong>Contact No:</strong> {consultation.contactNo}</p>
-//                         </div>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// }
 
 // export default PersonalTrainerPage;
 
@@ -233,8 +133,6 @@ function PersonalTrainerPage() {
 
     // Function to generate the DiceBear API URL
     const getAvatarUrl = (seed) => {
-        // Log the seed value for debugging purposes
-        console.log('Seed value:', seed);
         return `https://api.dicebear.com/8.x/pixel-art/svg?seed=${seed}`;
     };
 
@@ -251,12 +149,48 @@ function PersonalTrainerPage() {
     };
 
     // Function to handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here, e.g., save data or send to API
 
-        // Close the modal after submission
-        closeModal();
+        // Collect form data
+        const workoutName1 = e.target.elements['workoutName1'].value;
+        const workoutName2 = e.target.elements['workoutName2'].value;
+        const reps = parseInt(e.target.elements['reps'].value);
+        const weight = parseFloat(e.target.elements['weight'].value);
+
+        // Create the workout object
+        const newWorkout = {
+            workoutName1,
+            workoutName2,
+            reps,
+            weight,
+        };
+
+        try {
+            // Fetch the existing data for the user from the JSON server
+            const response = await axios.get(`http://localhost:3001/consultations/${selectedConsultation.id}`);
+            const response1 = await axios.get(`http://localhost:3001/users/${selectedConsultation.id}`);
+            const userData = response.data;
+            const userData1= response1.data
+            console.log(userData1);
+
+            // Check if the 'workout' field exists in the user's data
+            if (!userData1.workout) {
+                // If not, initialize an empty array
+                userData1.workout = [];
+            }
+
+            // Add the new workout data to the user's workout array
+            userData1.workout.push(newWorkout);
+
+            // Send the updated user data back to the JSON server
+            await axios.put(`http://localhost:3001/users/${selectedConsultation.id}`, userData1);
+
+            // Close the modal after successful submission
+            closeModal();
+        } catch (error) {
+            console.error('Error updating user data:', error);
+        }
     };
 
     return (
@@ -278,19 +212,19 @@ function PersonalTrainerPage() {
                             <p>Health Issues: {consultation.healthIssues}</p>
                             <p>Contact No: {consultation.contactNo}</p>
                         </div>
-                        {/* Add button to open the modal */}
+                        {/* Button to open the modal */}
                         <button onClick={() => openModal(consultation)}>Add Workout</button>
                     </div>
                 ))}
             </div>
 
-            {/* Render the modal form when isModalOpen is true */}
+            {/* Modal for adding a workout */}
             {isModalOpen && selectedConsultation && (
                 <div className="modal-overlay">
                     <div className="modal">
                         <h3>Add Workout</h3>
                         <form onSubmit={handleSubmit}>
-                            {/* Pre-fill user name */}
+                            {/* User name input */}
                             <label>
                                 User Name:
                                 <input
@@ -299,34 +233,53 @@ function PersonalTrainerPage() {
                                     readOnly
                                 />
                             </label>
-                            {/* Fields for workout name, reps, and weight */}
                             <label>
-                                Workout Name:
+                                Muscle:
                                 <input
                                     type="text"
+                                    value={selectedConsultation.exerciseType}
+                                    readOnly
+                                />
+                            </label>
+                            {/* Form fields for workout name, reps, and weight */}
+                            <label>
+                                Workout Name 1:
+                                <input
+                                    type="text"
+                                    name="workoutName1"
                                     required
-                                    // Add a state variable and handler for workout name if needed
+                                />
+                            </label>
+                            <label>
+                                Workout Name 2:
+                                <input
+                                    type="text"
+                                    name="workoutName2"
+                                    required
                                 />
                             </label>
                             <label>
                                 Number of Reps:
                                 <input
                                     type="number"
+                                    name="reps"
                                     required
-                                    // Add a state variable and handler for reps if needed
                                 />
                             </label>
                             <label>
                                 Weight:
                                 <input
                                     type="number"
+                                    name="weight"
                                     required
-                                    // Add a state variable and handler for weight if needed
                                 />
                             </label>
-                            {/* Form buttons */}
-                            <button type="submit">Submit</button>
-                            <button type="button" onClick={closeModal}>Cancel</button>
+
+                            {/* Submit and cancel buttons */}
+                            <div className="form-buttons">
+                                <button type="submit">Submit</button>
+                                <button type="button" onClick={closeModal}>Cancel</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -336,6 +289,7 @@ function PersonalTrainerPage() {
 }
 
 export default PersonalTrainerPage;
+
 
 
 
