@@ -34,6 +34,7 @@ import WorkoutPage from './WorkoutPage';
 import UserPage from './UserPage';
 import AdminPage from './AdminPage';
 import PersonalTrainerPage from './PersonalTrainerPage';
+import OpenChat from './OpenChat';
 
 
 
@@ -50,7 +51,8 @@ function App() {
                 <Route path="/workout" component={WorkoutPage} />
                 <Route path="/user" element={<UserPage />} />    
                 <Route path="/admin" element={<AdminPage />} />  
-                <Route path="/personal-trainer" element={<PersonalTrainerPage />} />          
+                <Route path="/personal-trainer" element={<PersonalTrainerPage />} /> 
+                <Route path="/openchat" element={<OpenChat />} />         
                 {/* <Route path="/workout/:division" element={<WorkoutPage />} /> */}
                 {/* <Route path="/workout/:bodyPart" element={<WorkoutPage></WorkoutPage>} /> */}
                 {/* <Route path="/contact" component={ContactUs} />

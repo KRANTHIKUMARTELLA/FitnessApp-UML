@@ -1,116 +1,5 @@
 
-// export default NavigationBar;
 
-// import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import './NavigationBar.css'; // Import the CSS file for styling
-
-// function NavigationBar() {
-//     // State variable to track if the user is logged in
-//     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-//     // Function to handle user logout
-//     const handleLogout = () => {
-//         // Clear user data from local storage
-//         localStorage.removeItem('user');
-
-//         // Update state to reflect logout
-//         setIsLoggedIn(false);
-
-//         // Redirect to the home page (optional)
-//         window.location.href = '/';
-//     };
-
-//     // Check local storage to determine if the user is logged in
-//     useEffect(() => {
-//         const user = JSON.parse(localStorage.getItem('user'));
-//         if (user) {
-//             setIsLoggedIn(true);
-//         }
-//     }, []);
-
-//     return (
-//         <nav className="navbar">
-//             <div className="navbar-container">
-//                 <div className="nav-links">
-//                     <Link to="/" className="nav-link">Home</Link>
-//                     <Link to="/contact" className="nav-link">Contact Us</Link>
-//                 </div>
-//                 <div className="auth-links">
-//                     {isLoggedIn ? (
-//                         // Show "Logout" button when user is logged in
-//                         <button className="auth-link" onClick={handleLogout}>Logout</button>
-//                     ) : (
-//                         // Show "Login" and "Register" links when user is not logged in
-//                         <>
-//                             <Link to="/login" className="auth-link">Login</Link>
-//                             <Link to="/register" className="auth-link">Register</Link>
-//                         </>
-//                     )}
-//                 </div>
-//             </div>
-//         </nav>
-//     );
-// }
-
-// export default NavigationBar;
-
-
-// import React, { useState, useEffect } from 'react';
-// import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import './NavigationBar.css'; // Import the CSS file for styling
-
-// function NavigationBar() {
-//     const [isLoggedIn, setIsLoggedIn] = useState(false);
-//     const location = useLocation();
-//     const navigate = useNavigate();
-
-//     // Function to handle user logout
-//     const handleLogout = () => {
-//         // Clear user data from local storage
-//         localStorage.removeItem('user');
-
-//         // Update state to reflect logout
-//         setIsLoggedIn(false);
-
-//         // Redirect to the home page
-//         navigate('/');
-//     };
-
-//     // Check local storage to determine if the user is logged in
-//     useEffect(() => {
-//         const user = JSON.parse(localStorage.getItem('user'));
-//         if (user) {
-//             setIsLoggedIn(true);
-//         } else {
-//             setIsLoggedIn(false);
-//         }
-//     }, [location]);
-
-//     return (
-//         <nav className="navbar">
-//             <div className="navbar-container">
-//                 <div className="nav-links">
-//                     <Link to="/" className="nav-link">Home</Link>
-//                     <Link to="/contact" className="nav-link">Contact Us</Link>
-//                     {/* {isLoggedIn && <Link to="/special" className="nav-link">Special Button</Link>} */}
-//                 </div>
-//                 <div className="auth-links">
-//                     {isLoggedIn ? (
-//                         // Show "Logout" button when user is logged in
-//                         <button className="auth-link" onClick={handleLogout}>Logout</button>
-//                     ) : (
-//                         // Show "Login" and "Register" links when user is not logged in
-//                         <>
-//                             <Link to="/login" className="auth-link">Login</Link>
-//                             <Link to="/register" className="auth-link">Register</Link>
-//                         </>
-//                     )}
-//                 </div>
-//             </div>
-//         </nav>
-//     );
-// }
 
 // export default NavigationBar;
 // this jus accepts admin page and create a manage button
@@ -254,14 +143,103 @@
 
 // export default NavigationBar;
 
+// import React, { useEffect, useState } from 'react';
+// import { Link, useNavigate, useLocation } from 'react-router-dom';
+// import './NavigationBar.css'; // Import the CSS file for styling
+
+// function NavigationBar() {
+//     const [isLoggedIn, setIsLoggedIn] = useState(false);
+//     const [isAdmin, setIsAdmin] = useState(false); // State to track if the user is an admin
+//     const [isPersonalTrainer, setIsPersonalTrainer] = useState(false); // State to track if the user is a personal trainer
+//     const location = useLocation();
+//     const navigate = useNavigate();
+
+//     // Function to handle user logout
+//     const handleLogout = () => {
+//         // Clear user data from local storage
+//         localStorage.removeItem('user');
+//         localStorage.removeItem('isAdmin');
+//         localStorage.removeItem('isPersonalTrainer');
+
+//         // Update state to reflect logout
+//         setIsLoggedIn(false);
+//         setIsAdmin(false);
+//         setIsPersonalTrainer(false);
+
+//         // Redirect to the home page
+//         navigate('/');
+//     };
+
+//     // Function to handle navigation to the Manage User page
+//     const handleManageUserClick = () => {
+//         navigate('/admin');
+//     };
+
+//     // Function to handle navigation to the Personal Trainer page
+//     const handlePersonalTrainerClick = () => {
+//         navigate('/personal-trainer'); // Example: Redirect to the personal trainer's specific page
+//     };
+
+//     // Check local storage to determine if the user is logged in and their role (admin, personal trainer)
+//     useEffect(() => {
+//         const user = JSON.parse(localStorage.getItem('user'));
+//         const isAdminFlag = JSON.parse(localStorage.getItem('isAdmin'));
+//         const isPersonalTrainerFlag = JSON.parse(localStorage.getItem('isPersonalTrainer'));
+
+//         setIsLoggedIn(!!user);
+//         setIsAdmin(!!isAdminFlag);
+//         setIsPersonalTrainer(!!isPersonalTrainerFlag);
+//     }, [location]);
+
+//     return (
+//         <nav className="navbar">
+//             <div className="navbar-container">
+//                 <div className="nav-links">
+//                     <Link to="/" className="nav-link">Home</Link>
+//                     <Link to="/contact" className="nav-link">Contact Us</Link>
+
+//                     {/* Render "Manage User" button if the user is an admin */}
+//                     {isAdmin && (
+//                         <button className="auth-link" onClick={handleManageUserClick}>Manage User</button>
+//                     )}
+
+//                     {/* Render "Personal Trainer" button if the user is a personal trainer */}
+//                     {isPersonalTrainer && (
+//                         <button className="auth-link" onClick={handlePersonalTrainerClick}>
+//                             Clients
+//                         </button>
+//                     )}
+//                 </div>
+
+//                 <div className="auth-links">
+//                     {isLoggedIn ? (
+//                         // Show "Logout" button when user is logged in
+//                         <button className="auth-link" onClick={handleLogout}>Logout</button>
+//                     ) : (
+//                         // Show "Login" and "Register" links when user is not logged in
+//                         <>
+//                             <Link to="/login" className="auth-link">Login</Link>
+//                             <Link to="/register" className="auth-link">Register</Link>
+//                         </>
+//                     )}
+//                 </div>
+//             </div>
+//         </nav>
+//     );
+// }
+
+// export default NavigationBar;
+
+// the above code works
+
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './NavigationBar.css'; // Import the CSS file for styling
 
 function NavigationBar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false); // State to track if the user is an admin
-    const [isPersonalTrainer, setIsPersonalTrainer] = useState(false); // State to track if the user is a personal trainer
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isPersonalTrainer, setIsPersonalTrainer] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -288,7 +266,7 @@ function NavigationBar() {
 
     // Function to handle navigation to the Personal Trainer page
     const handlePersonalTrainerClick = () => {
-        navigate('/personal-trainer'); // Example: Redirect to the personal trainer's specific page
+        navigate('/personal-trainer'); // Redirect to the personal trainer's specific page
     };
 
     // Check local storage to determine if the user is logged in and their role (admin, personal trainer)
@@ -309,9 +287,15 @@ function NavigationBar() {
                     <Link to="/" className="nav-link">Home</Link>
                     <Link to="/contact" className="nav-link">Contact Us</Link>
 
+                    {isLoggedIn && (
+                        <Link to="/openchat" className="nav-link">OpenAI Chat</Link>
+                    )}
+
                     {/* Render "Manage User" button if the user is an admin */}
                     {isAdmin && (
-                        <button className="auth-link" onClick={handleManageUserClick}>Manage User</button>
+                        <button className="auth-link" onClick={handleManageUserClick}>
+                            Manage User
+                        </button>
                     )}
 
                     {/* Render "Personal Trainer" button if the user is a personal trainer */}
@@ -325,7 +309,10 @@ function NavigationBar() {
                 <div className="auth-links">
                     {isLoggedIn ? (
                         // Show "Logout" button when user is logged in
-                        <button className="auth-link" onClick={handleLogout}>Logout</button>
+                        
+                        <button className="auth-link" onClick={handleLogout}>
+                            Logout
+                        </button>
                     ) : (
                         // Show "Login" and "Register" links when user is not logged in
                         <>
@@ -340,4 +327,5 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
+
 

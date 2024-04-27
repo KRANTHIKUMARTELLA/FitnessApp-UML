@@ -87,6 +87,10 @@ these are the bodypart list we have
 
 ### install `npm install recharts --save`
 
+### install `npm install react-router-dom openai`
+
+### install `npm install openai`
+
 ###  run `npm install -g json-server`
 
 ### run ` npx json-server --watch db.json --port 3001`

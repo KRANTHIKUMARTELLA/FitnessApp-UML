@@ -236,7 +236,7 @@ function UserPage() {
                                     <ul>
                                         {userData.workout.map((workout, index) => (
                                             <li key={index}>
-                                                <p><strong>Muscle:</strong> {workout.workoutName1}</p>
+                                                <p><strong>Muscle:</strong> {workout.Muscle}</p>
                                                 <p><strong>Workout Name 1:</strong> {workout.workoutName1}</p>
                                                 <p><strong>Workout Name 2:</strong> {workout.workoutName2}</p>
                                                 <p><strong>Reps:</strong> {workout.reps}</p>
