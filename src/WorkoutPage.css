@@ -1,0 +1,75 @@
+/* WorkoutPage CSS */
+
+/* Style for the main workout page container */
+.workout-page {
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff; /* Light background color */
+}
+
+/* Style for the page title */
+.workout-page .page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #444; /* Dark grey title color */
+    margin-bottom: 20px;
+}
+
+/* Style for the exercises grid */
+.workout-page .exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns instead of 2 for a smaller grid size */
+    gap: 20px; /* Gap between grid items */
+    margin: 0 auto; /* Center the grid on the page */
+    width: 80%; /* Reduce the grid size */
+}
+
+/* Style for each exercise card */
+.workout-page .exercise-card {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f7f7f7; /* Light grey background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.workout-page .exercise-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Style for the exercise card headings */
+.workout-page .exercise-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333; /* Darker grey heading color */
+}
+
+/* Style for the exercise images */
+.workout-page .exercise-image {
+    width: auto; /* Let the image take its natural width */
+    height: auto; /* Let the image take its natural height */
+    object-fit: contain; /* Maintain the original aspect ratio and fit the container */
+    margin-bottom: 10px; /* Add margin below the image */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Style for exercise details */
+.workout-page .exercise-details {
+    font-size: 14px;
+    color: #555; /* Grey text color */
+}
+
+/* Style for the instructions */
+.workout-page .instructions {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666; /* Dark grey text color */
+}
+.workout-page .exercise-card h3 {
+    text-align: center; /* Center the exercise name */
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #444; /* Dark grey heading color */
+}

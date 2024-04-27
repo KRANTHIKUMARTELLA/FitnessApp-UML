@@ -1,0 +1,106 @@
+/* UserPage.css */
+
+.user-page {
+    display: flex;
+}
+
+.left-navbar {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 50px; /* Adjust based on the height of the common navigation bar */
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.left-navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-navbar li {
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #555;
+}
+
+.left-navbar li:hover {
+    background-color: #555;
+}
+
+.left-navbar li:last-child {
+    border-bottom: none;
+}
+
+.center-content {
+    margin-left: 700px; /* Adjust based on the width of the left navigation bar */
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"],
+input[type="radio"] {
+    margin-top: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    margin-top: 0;
+}
+
+/* UserPage.css */
+
+/* Style for radio button container */
+.radio-container {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Style for individual radio buttons */
+.radio-container input[type="radio"] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Style for radio button labels */
+.radio-container label {
+    display: inline-block;
+    margin-right: 15px;
+}

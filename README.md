@@ -71,6 +71,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Test commit these changes
 
+these are the bodypart list we have
+[
+    "back",
+    "cardio",
+    "chest",
+    "lower arms",
+    "lower legs",
+    "neck",
+    "shoulders",
+    "upper arms",
+    "upper legs",
+    "waist"
+]
+
 
 ###  run `npm install -g json-server`
 

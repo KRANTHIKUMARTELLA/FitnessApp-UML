@@ -30,6 +30,11 @@ import ContactUs from './ContactUs';
 import Login from './Login';
 import Register from './Register';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import WorkoutPage from './WorkoutPage'; 
+import UserPage from './UserPage';
+import AdminPage from './AdminPage';
+import PersonalTrainerPage from './PersonalTrainerPage';
+
 
 
 function App() {
@@ -41,6 +46,13 @@ function App() {
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/workout/:bodyPart" element={<WorkoutPage />} />
+                <Route path="/workout" component={WorkoutPage} />
+                <Route path="/user" element={<UserPage />} />    
+                <Route path="/admin" element={<AdminPage />} />  
+                <Route path="/personal-trainer" element={<PersonalTrainerPage />} />          
+                {/* <Route path="/workout/:division" element={<WorkoutPage />} /> */}
+                {/* <Route path="/workout/:bodyPart" element={<WorkoutPage></WorkoutPage>} /> */}
                 {/* <Route path="/contact" component={ContactUs} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} /> */}

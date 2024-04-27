@@ -40,10 +40,12 @@ button.auth-link {
     font-size: medium;
     padding: 5px 10px;
     border-radius: 5px;
+    display: inline-block;
     border: none; /* Remove default button border */
     background: none; /* Match the background of the links */
     cursor: pointer; /* Add cursor style for interactivity */
     transition: background-color 0.3s ease;
+    line-height: 1.5;
 }
 
 button.auth-link:hover {
