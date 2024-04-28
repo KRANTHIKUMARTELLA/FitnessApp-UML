@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import OpenAI from 'openai';
 //import NavigationBar from './NavigationBar';
 // Import your custom CSS file for OpenChat
-// import './OpenChat.css';
+import './OpenChat.css';
 
 function OpenChat() {
     const [input, setInput] = useState('');
@@ -26,7 +26,7 @@ function OpenChat() {
         });
         
         try {
-            const systemMessage = `You are a helpful assistant. I need you as my medical professional for fitness. My name is ${userData.name} with age is ${userData.age}, weight is ${userData.weight} lbs. please always address me with my name`;
+            const systemMessage = `You are a helpful assistant. I need you as my medical professional for fitness. you are not supposed to anwer anything other than realted to medical and fintess feild. My name is ${userData.name} with age is ${userData.age}, weight is ${userData.weight} lbs. please always address me with my name`;
 
             const completion = await openai.chat.completions.create({
                 model: 'gpt-3.5-turbo',
@@ -38,6 +38,7 @@ function OpenChat() {
 
             // Set the OpenAI response in the state
             setResponse(completion.choices[0].message.content);
+            setInput('');
         } catch (error) {
             console.error('Error fetching OpenAI response:', error);
         }

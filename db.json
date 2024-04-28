@@ -1,37 +1,20 @@
 {
   "users": [
     {
-      "id": "1",
-      "email": "user1@example.com",
-      "password": "password1",
-      "name": "User One",
-      "status": "grant"
-    },
-    {
-      "id": "2",
-      "email": "user2@example.com",
-      "password": "password2",
-      "name": "User Two",
-      "status": "grant"
-    },
-    {
-      "id": "3",
-      "email": "user3@example.com",
-      "password": "password3",
-      "name": "User Three",
-      "status": "grant"
-    },
-    {
-      "id": "e499",
-      "email": "hey@gmail.com",
-      "password": "1234",
+      "id": "f9ag",
+      "name": "Nirmala",
+      "age": "26",
+      "height": "183",
+      "weight": "120",
+      "email": "nirmala@gmail.com",
+      "password": "12345",
       "status": "grant"
     },
     {
       "id": "ad66",
       "email": "ew@gmail.com",
       "password": "@re",
-      "name": "User four",
+      "name": "Kevin",
       "status": "grant"
     },
     {
@@ -67,6 +50,12 @@
           "workoutName2": "Lat pull down",
           "reps": 2,
           "weight": 10
+        },
+        {
+          "workoutName1": "bicep curl",
+          "workoutName2": "pushpus",
+          "reps": 20,
+          "weight": 15
         }
       ],
       "Log": [
@@ -125,6 +114,22 @@
           "duration": "5",
           "caloriesBurnt": 900,
           "date": "2024-04-27"
+        },
+        {
+          "effortLevel": "beginner",
+          "reps": 14,
+          "targetMuscle": "Chest",
+          "duration": "7",
+          "caloriesBurnt": 700,
+          "date": "2024-04-27"
+        },
+        {
+          "effortLevel": "advanced",
+          "reps": 10,
+          "targetMuscle": "Chest",
+          "duration": "20",
+          "caloriesBurnt": 96,
+          "date": "2024-04-28"
         }
       ]
     },
@@ -136,7 +141,15 @@
       "weight": "71",
       "email": "Aditya@gmail.com",
       "password": "1234",
-      "status": "grant"
+      "status": "revoke",
+      "workout": [
+        {
+          "workoutName1": "Squats",
+          "workoutName2": "Leg press",
+          "reps": 5,
+          "weight": 20
+        }
+      ]
     },
     {
       "id": "47",
@@ -145,6 +158,30 @@
       "height": "161",
       "weight": "71",
       "email": "Rahul@gmail.com",
+      "password": "1234",
+      "status": "grant",
+      "workout": [
+        {
+          "workoutName1": "Hamstring curl",
+          "workoutName2": "Romanian deadlift",
+          "reps": 4,
+          "weight": 22
+        },
+        {
+          "workoutName1": "bal",
+          "workoutName2": "blah",
+          "reps": 13,
+          "weight": 15
+        }
+      ]
+    },
+    {
+      "id": "f9af",
+      "name": "personal Trainer",
+      "age": "26",
+      "height": "183",
+      "weight": "120",
+      "email": "personaltrainer@gmail.com",
       "password": "1234",
       "status": "grant"
     },
@@ -159,23 +196,23 @@
       "status": "grant"
     },
     {
-      "id": "f9af",
-      "name": "personal Trainer",
-      "age": "26",
-      "height": "183",
-      "weight": "120",
-      "email": "personaltrainer@gmail.com",
+      "id": "6d87",
+      "name": "John",
+      "age": "25",
+      "height": "160",
+      "weight": "54",
+      "email": "john@gmail.com",
       "password": "1234",
       "status": "grant"
     },
     {
-      "id": "f9ag",
-      "name": "Nirmala",
-      "age": "26",
-      "height": "183",
-      "weight": "120",
-      "email": "nirmala@gmail.com",
-      "password": "12345",
+      "id": "1207",
+      "name": "Kruthi",
+      "age": "25",
+      "height": "160",
+      "weight": "65",
+      "email": "kruthi@gmail.com",
+      "password": "1234",
       "status": "grant"
     }
   ],
@@ -188,25 +225,18 @@
       "contactNo": "7087960567"
     },
     {
-      "id": "45",
-      "name": "Reshma",
-      "exerciseType": "Back",
-      "healthIssues": "Yes",
-      "contactNo": "7087960567"
-    },
-    {
       "id": "46",
       "name": "Aditya",
-      "exerciseType": "Legs",
+      "exerciseType": "Shoulder",
       "healthIssues": "Yes",
       "contactNo": "7087960567"
     },
     {
-      "id": "47",
-      "name": "Rahul",
-      "exerciseType": "Legs",
+      "id": "45",
+      "name": "Reshma",
+      "exerciseType": "Arms",
       "healthIssues": "Yes",
-      "contactNo": "7087960567"
+      "contactNo": "708695667"
     }
   ]
 }

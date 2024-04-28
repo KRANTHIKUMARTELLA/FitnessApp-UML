@@ -285,6 +285,7 @@ function NavigationBar() {
             <div className="navbar-container">
                 <div className="nav-links">
                     <Link to="/" className="nav-link">Home</Link>
+                    <Link to="/exercises" className="nav-link">Exercises</Link>
                     <Link to="/contact" className="nav-link">Contact Us</Link>
 
                     {isLoggedIn && (

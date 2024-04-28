@@ -35,6 +35,8 @@ import UserPage from './UserPage';
 import AdminPage from './AdminPage';
 import PersonalTrainerPage from './PersonalTrainerPage';
 import OpenChat from './OpenChat';
+import ExercisesPage from './ExercisesPage';
+import Footer from './Footer';
 
 
 
@@ -52,13 +54,15 @@ function App() {
                 <Route path="/user" element={<UserPage />} />    
                 <Route path="/admin" element={<AdminPage />} />  
                 <Route path="/personal-trainer" element={<PersonalTrainerPage />} /> 
-                <Route path="/openchat" element={<OpenChat />} />         
+                <Route path="/openchat" element={<OpenChat />} />    
+                <Route path="/exercises" element={<ExercisesPage />} />
                 {/* <Route path="/workout/:division" element={<WorkoutPage />} /> */}
                 {/* <Route path="/workout/:bodyPart" element={<WorkoutPage></WorkoutPage>} /> */}
                 {/* <Route path="/contact" component={ContactUs} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} /> */}
             </Routes>
+            <Footer/>
         </Router>
     );
 }

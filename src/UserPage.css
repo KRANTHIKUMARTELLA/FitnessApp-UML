@@ -2,6 +2,11 @@
 /* UserPage.css */
 
 /* Existing styles */
+/* UserPage.css */
+/* UserPage.css */
+/* UserPage.css */
+
+/* Existing styles */
 .user-page {
     display: flex;
 }
@@ -11,7 +16,7 @@
     background-color: #333;
     color: #fff;
     padding: 20px;
-    position: fixed;
+    position: sticky;
     top: 64px; /* Adjust based on the height of the common navigation bar 64px */
     bottom: 0;
     display: flex;
@@ -42,9 +47,10 @@
 }
 
 .center-content {
-    margin-left: 220px; /* Adjusted to include left navbar width */
+    margin-left: 20px; /* Adjusted to include left navbar width */
     padding: 20px;
     text-align: center;
+    height: 100vh;
     width: calc(100% - 220px); /* Adjusted to fill remaining width */
 }
 
@@ -119,7 +125,7 @@ input[type="radio"] {
 /* Profile details styling */
 .profile-details {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .profile-details p {

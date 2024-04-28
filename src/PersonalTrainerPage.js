@@ -148,6 +148,14 @@ function PersonalTrainerPage() {
         setSelectedConsultation(null);
     };
 
+    const deleteUser = async (userId) => {
+        try {
+            await axios.delete(`http://localhost:3001/consultations/${userId}`);
+        } catch (error) {
+            console.error('Error deleting user:', error);
+        }
+    };
+
     // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -168,9 +176,9 @@ function PersonalTrainerPage() {
 
         try {
             // Fetch the existing data for the user from the JSON server
-            const response = await axios.get(`http://localhost:3001/consultations/${selectedConsultation.id}`);
+           // const response = await axios.get(`http://localhost:3001/consultations/${selectedConsultation.id}`);
             const response1 = await axios.get(`http://localhost:3001/users/${selectedConsultation.id}`);
-            const userData = response.data;
+           // const userData = response.data;
             const userData1= response1.data
             console.log(userData1);
 
@@ -183,8 +191,12 @@ function PersonalTrainerPage() {
             // Add the new workout data to the user's workout array
             userData1.workout.push(newWorkout);
 
+            await deleteUser(selectedConsultation.id);
+
             // Send the updated user data back to the JSON server
             await axios.put(`http://localhost:3001/users/${selectedConsultation.id}`, userData1);
+            setConsultations(consultations.filter(consultation => consultation.id !== selectedConsultation.id));
+
 
             // Close the modal after successful submission
             closeModal();

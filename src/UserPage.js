@@ -527,6 +527,7 @@ function UserPage() {
             exerciseType: event.target.elements['exercise-type'].value,
             healthIssues: event.target.elements['health-issues'].value,
             contactNo: event.target.elements['contact-no'].value,
+            id:user.id
         };
 
         try { 

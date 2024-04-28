@@ -176,6 +176,7 @@ function WorkoutPage() {
     // Define a function to fetch data from the API
     const fetchDataFromApi = async () => {
         // Define the API URL based on the selected body part
+        console.log("body part",bodyPart);
         const apiUrl = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`;
 
         // API options

@@ -169,100 +169,121 @@
 
 // export default HomePage;
 
+// import React from 'react';
+// import { Link } from 'react-router-dom'; // Import Link for routing
+// import './HomePage.css';
+// import fitness from './assets/fitness.jpg';
+
+// function HomePage() {
+//     return (
+//         <div className="home-page">
+//             <div className="hero-section">
+//                 <img src={fitness} alt="Fitness" className="hero-image" />
+//                 <h1 className="hero-text">Welcome to Our Fitness App</h1>
+//             </div>
+//             <h2 className="section-title">Exercises</h2>
+//             <div className="exercises-grid">
+//                 {/* Exercise Card for Chest */}
+//                 <Link to="/workout/chest" className="exercise-card">
+//                     <h3>Chest</h3>
+//                     <ul>
+//                         <li>Bench Press</li>
+//                         <li>Push-ups</li>
+//                         <li>Chest Fly</li>
+//                     </ul>
+//                 </Link>
+
+//                 {/* Exercise Card for Back */}
+//                 <Link to="/workout/back" className="exercise-card">
+//                     <h3>Back</h3>
+//                     <ul>
+//                         <li>Pull-ups</li>
+//                         <li>Rows</li>
+//                         <li>Deadlift</li>
+//                     </ul>
+//                 </Link>
+
+//                 {/* Exercise Card for Back */}
+//                 <Link to="/workout/lower arms" className="exercise-card">
+//                     <h3>Lower arms</h3>
+//                     <ul>
+//                         <li>Pull-ups</li>
+//                         <li>Curls</li>
+//                         <li>Deadlift</li>
+//                     </ul>
+//                 </Link>
+
+//                 {/* Exercise Card for Legs */}
+//                 <Link to="/workout/upper arms" className="exercise-card">
+//                     <h3>Upper arms</h3>
+//                     <ul>
+//                         <li>Curls</li>
+//                         <li>Lunges</li>
+//                         <li>Bench press</li>
+//                     </ul>
+//                 </Link>
+
+//                 {/* Exercise Card for Shoulder */}
+//                 <Link to="/workout/cardio" className="exercise-card">
+//                     <h3>Cardio</h3>
+//                     <ul>
+//                         <li>Treadmil</li>
+//                         <li>Burpees</li>
+//                         <li>Jumping Jacks</li>
+//                     </ul>
+//                 </Link> 
+
+//                 <Link to="/workout/shoulders" className="exercise-card">
+//                     <h3>Shoulders</h3>
+//                     <ul>
+//                         <li>Shoulder Press</li>
+//                         <li>Lateral Raises</li>
+//                         <li>Front Raises</li>
+//                     </ul>
+//                 </Link>   
+//                 <Link to="/workout/upper legs" className="exercise-card">
+//                     <h3>Upper legs</h3>
+//                     <ul>
+//                         <li>Hamstring curl</li>
+//                         <li>Glute kick</li>
+//                         <li>Leg press</li>
+//                     </ul>
+//                 </Link>     
+
+//                 <Link to="/workout/lower legs" className="exercise-card">
+//                     <h3>Lower legs</h3>
+//                     <ul>
+//                         <li>Leg Press</li>
+//                         <li>Squats</li>
+//                         <li>Deadlift</li>
+//                     </ul>
+//                 </Link>            
+//             </div>
+//         </div>
+//     );
+// }
+
+// export default HomePage;
+
+// the above code has everythings 
+
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for routing
 import './HomePage.css';
-import fitness from './assets/fitness.jpg';
+import fitness from './assets/fit6.jpg';
 
 function HomePage() {
     return (
         <div className="home-page">
-            <div className="hero-section">
-                <img src={fitness} alt="Fitness" className="hero-image" />
-                <h1 className="hero-text">Welcome to Our Fitness App</h1>
-            </div>
-            <h2 className="section-title">Exercises</h2>
-            <div className="exercises-grid">
-                {/* Exercise Card for Chest */}
-                <Link to="/workout/chest" className="exercise-card">
-                    <h3>Chest</h3>
-                    <ul>
-                        <li>Bench Press</li>
-                        <li>Push-ups</li>
-                        <li>Chest Fly</li>
-                    </ul>
-                </Link>
-
-                {/* Exercise Card for Back */}
-                <Link to="/workout/back" className="exercise-card">
-                    <h3>Back</h3>
-                    <ul>
-                        <li>Pull-ups</li>
-                        <li>Rows</li>
-                        <li>Deadlift</li>
-                    </ul>
-                </Link>
-
-                {/* Exercise Card for Back */}
-                <Link to="/workout/lower arms" className="exercise-card">
-                    <h3>Lower arms</h3>
-                    <ul>
-                        <li>Pull-ups</li>
-                        <li>Curls</li>
-                        <li>Deadlift</li>
-                    </ul>
-                </Link>
-
-                {/* Exercise Card for Legs */}
-                <Link to="/workout/upper arms" className="exercise-card">
-                    <h3>Upper arms</h3>
-                    <ul>
-                        <li>Curls</li>
-                        <li>Lunges</li>
-                        <li>Bench press</li>
-                    </ul>
-                </Link>
-
-                {/* Exercise Card for Shoulder */}
-                <Link to="/workout/cardio" className="exercise-card">
-                    <h3>Cardio</h3>
-                    <ul>
-                        <li>Treadmil</li>
-                        <li>Burpees</li>
-                        <li>Jumping Jacks</li>
-                    </ul>
-                </Link> 
-
-                <Link to="/workout/shoulders" className="exercise-card">
-                    <h3>Shoulders</h3>
-                    <ul>
-                        <li>Shoulder Press</li>
-                        <li>Lateral Raises</li>
-                        <li>Front Raises</li>
-                    </ul>
-                </Link>   
-                <Link to="/workout/upper legs" className="exercise-card">
-                    <h3>Upper legs</h3>
-                    <ul>
-                        <li>Hamstring curl</li>
-                        <li>Glute kick</li>
-                        <li>Leg press</li>
-                    </ul>
-                </Link>     
-
-                <Link to="/workout/lower legs" className="exercise-card">
-                    <h3>Lower legs</h3>
-                    <ul>
-                        <li>Leg Press</li>
-                        <li>Squats</li>
-                        <li>Deadlift</li>
-                    </ul>
-                </Link>            
+            <img src={fitness} alt="Fitness" className="hero-image" />
+            <div className="hero-content">
+                <h1 className="hero-heading">Personal Health and Fitness</h1>
+                <p className="hero-description">Welcome to our Fitness and Health Metrics Hub, where you'll find personalized workout plans and track vital health metrics effortlessly. Start your journey towards a healthier lifestyle today!</p>
             </div>
         </div>
     );
 }
 
 export default HomePage;
+
 
 
